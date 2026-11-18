@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Normativas - DGCyE Provincia de Buenos Aires</title>
+    <link rel="stylesheet" href="./css/estilo.css">
+</head>
+<body>
+
+    <header>
+        <h1>DGCyE - Buscador Oficial de Normativas y Planes de Estudio (GBA)</h1>
+        <p>Sistema de Consulta Rápida para Instituciones Educativas de la Provincia de Buenos Aires</p>
+    </header>
+
+    <div class="grid-layout">
+        <div>
+            <div class="card">
+                <h3>Filtrado Dinámico de Resoluciones</h3>
+                <input type="text" id="buscador" placeholder="Buscar por número, palabra clave o descripción..." oninput="filtrarNormativas()">
+                <label for="filtro-tipo">Tipo de Norma:</label>
+                <select id="filtro-tipo" onchange="filtrarNormativas()">
+                    <option value="todos">Todas las normativas</option>
+                    <option value="Resolución">Resolución</option>
+                    <option value="Disposición">Disposición</option>
+                    <option value="Circular">Circular</option>
+                </select>
+            </div>
+
+            <div id="contenedor-resultados"></div>
+        </div>
+
+        <div>
+            <div class="card">
+                <h3>Calendario Histórico</h3>
+                <p>Seleccione periodo para auditoría:</p>
+                <select id="filtro-anio" onchange="filtrarNormativas()">
+                    <option value="2026">2026 (Año Actual)</option>
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                </select>
+                <hr style="border-color: #334155; margin: 15px 0;">
+                <h4>Anexos y Grillas</h4>
+                <p style="font-size: 0.90rem; color: #94a3b8;">Descargue los planes de estudio en formato tabular oficiales aprobados por la DGCyE.</p>
+                <a href="#" class="btn-descarga" onclick="alert('Descargando Anexo Excel Planes de Estudio GBA...')"> Descargar Planes de Estudio (.xlsx)</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/funciones.js"></script>
+</body>
+</html>
