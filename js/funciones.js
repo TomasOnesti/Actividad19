@@ -36,5 +36,29 @@ function renderizarResultados(lista) {
         </div>
     `).join('');
 }
+
+
+
+function expandirResoluciones() {
+
+    const contenedor = document.querySelector('.contenedor-listado');
+    const boton = document.getElementById('btn-expandir');
+
+    contenedor.classList.toggle('expandido');
+
+    if (contenedor.classList.contains('expandido')) {
+
+        boton.textContent = 'Mostrar menos ↑';
+
+    } else {
+
+        boton.textContent = 'Ver todas las resoluciones ↓';
+
+    }
+}
+
+
+
+
 //Iniciar al cargar la pagina
 renderizarResultados(baseDatosNormativas);

@@ -1,73 +1,184 @@
-body { 
-    font-family: 'Segoe UI', system-ui, sans-serif; 
-    background: #0f172a; 
-    color: #f8fafc; 
-    margin: 0; 
-    padding: 20px; 
+
+* {
+    box-sizing: border-box;
 }
-        
-header { 
-    background: #1e293b; 
-    padding: 20px; 
-    border-radius: 8px; 
-    border-bottom: 4px solid #eab308; 
-    margin-bottom: 20px; 
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #0f172a;
+    color: #f8fafc;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
-        
-h1 { 
-    margin: 0; 
-    font-size: 1.5rem; 
-    color: #facc15; 
+
+/* HEADER */
+
+header {
+    background: #1e293b;
+    padding: 20px;
+    border-bottom: 4px solid #eab308;
+    margin-bottom: 20px;
 }
-        
-.grid-layout { 
-    display: grid; 
-    grid-template-columns: 2fr 1fr; 
-    gap: 20px; 
+
+h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #facc15;
 }
-        
-.card { 
-    background: #1e293b; 
-    padding: 20px; 
-    border-radius: 8px; 
-    margin-bottom: 15px; 
-    border-left: 4px solid #38bdf8; 
+
+/* DISTRIBUCIÓN PRINCIPAL */
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    padding: 10px;
+    flex: 1;
+    align-items: stretch;
 }
-        
-input select { 
-    width: 100%; 
-    padding: 10px; 
-    margin-top: 8px; 
-    margin-bottom: 15px; 
-    border-radius: 6px; 
-    border: 1px solid #334155; 
-    background: #0f172a; 
-    color: #fff; 
-    box-sizing: border-box; 
+
+/* PANEL DE RESOLUCIONES */
+
+.panel-resoluciones {
+    display: flex;
+    flex-direction: column;
+    min-height: 650px;
+    height: 100%;
 }
-        
-.badge { 
-    background: #334155; 
-    color: #38bdf8; 
-    padding: 4px 8px; 
-    border-radius: 4px; 
-    font-size: 0.8rem; 
-    font-weight: bold; 
+
+.encabezado-filtros {
+    flex-shrink: 0;
 }
-        
-.btn-descarga { 
-    background: #eab308; 
-    color: #0f172a; 
-    border: none; 
-    padding: 8px 12px; 
-    border-radius: 4px; 
-    font-weight: bold; 
-    cursor: pointer; 
-    text-decoration: none; 
-    display: inline-block; 
-    margin-top: 10px; 
+
+.card {
+    background: #1e293b;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid #38bdf8;
 }
-        
-.btn-descarga:hover { 
-    background: #ca8a04; 
+
+/* BUSCADOR Y SELECTORES */
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #334155;
+    background: #0f172a;
+    color: #fff;
+}
+
+/* LISTADO DE RESOLUCIONES */
+
+.contenedor-listado {
+    background: #1e293b;
+    border-left: 4px solid #38bdf8;
+    padding: 20px;
+}
+
+.contenedor-listado:not(.expandido) #contenedor-resultados > :nth-child(n+3) {
+    display: none;
+}
+
+/* BOTÓN EXPANDIR */
+
+.btn-expandir {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: #334155;
+    color: #38bdf8;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.btn-expandir:hover {
+    background: #475569;
+}
+
+/* COLUMNA LATERAL */
+
+.columna-lateral {
+    display: flex;
+    flex-direction: column;
+}
+
+.columna-lateral .card {
+    height: fit-content;
+}
+
+/* BADGES */
+
+.badge {
+    background: #334155;
+    color: #38bdf8;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* DESCARGA */
+
+.btn-descarga {
+    background: #eab308;
+    color: #0f172a;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.btn-descarga:hover {
+    background: #ca8a04;
+}
+
+/* FOOTER */
+
+footer {
+    background: #1e293b;
+    border-top: 3px solid #eab308;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+
+    color: #94a3b8;
+    font-size: 0.85rem;
+}
+
+footer p {
+    margin: 5px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+    .grid-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .panel-resoluciones {
+        min-height: 500px;
+    }
+
+    .contenedor-listado {
+        max-height: 500px;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
 }
